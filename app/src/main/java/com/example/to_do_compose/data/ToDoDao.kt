@@ -21,7 +21,10 @@ interface ToDoDao {
     suspend fun updateTask(todoTaskEntity: TaskEntity)
 
     @Query("DELETE FROM todo_table")
-    suspend fun deleteAllTask(todoTaskEntity: TaskEntity)
+    suspend fun deleteAllTask()
+
+    @Delete
+    suspend fun deleteTask(todoTaskEntity: TaskEntity)
 
 
     @Query("SELECT * FROM todo_table WHERE title LIKE :searchQuery OR description LIKE :searchQuery")
